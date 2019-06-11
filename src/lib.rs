@@ -16,7 +16,11 @@
 
 #![doc(html_root_url = "https://docs.rs/num-iter/0.1")]
 #![no_std]
-#[cfg(feature = "std")]
+#![cfg_attr(all(target_env = "sgx", target_vendor = "mesalock"), feature(rustc_private))]
+#[cfg(all(feature = "mesalock_sgx", feature = "std", not(target_env = "sgx")))]
+extern crate sgx_tstd as std;
+
+#[cfg(all(feature = "mesalock_sgx", target_env = "sgx"))]
 extern crate std;
 
 extern crate num_integer as integer;
