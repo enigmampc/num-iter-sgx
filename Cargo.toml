@@ -29,7 +29,7 @@ rev = "v1.1.2-fix"
 #version = "0.2.4"
 #default-features = false
 git = "https://github.com/mesalock-linux/num-traits-sgx"
-rev = "v1.1.2"
+rev = "sgx_1.1.2"
 
 [features]
 default = ["std", "mesalock_sgx", "i128"]
